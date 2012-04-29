@@ -42,14 +42,14 @@ function getUsers($order_by, $filter) {
     global $pdo;
     
     $query = "SELECT * from user ";
-    $params = array (':order_by' => $order_by);
+    $params = array ();
     
     if ($filter != "All") {
         $query = "$query WHERE vocal_part = :filter";
         $params[':filter'] = $filter;
     }
     
-    $query = "$query ORDER BY :order_by";
+    $query = "$query ORDER BY $order_by";
     $stmt = $pdo->prepare($query);
     $stmt->execute($params);
     
