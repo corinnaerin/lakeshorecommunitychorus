@@ -1,0 +1,145 @@
+
+/*
+ *
+ * General styling
+ *
+ */
+
+header, footer, article, section, nav, menu, hgroup {  
+   display: block;  
+}
+
+body {
+    background: #808080;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 10pt;
+    padding:0px;
+	margin:0px;
+}
+
+
+input, textarea {
+   background-color:#f2f2f2;
+   font-family: Verdana, Arial, sans-serif;
+   font-size: 10pt;
+}
+
+a:link, a:visited {
+    color:maroon;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color:black;
+    text-decoration: underline;
+}
+
+/*
+*
+* Header & menu
+*
+*/
+
+#branding {
+    height:220px;
+    width:898px;
+    position:relative;
+    margin: 0px auto;
+    background-position: center top;
+    background: #FFFFFF url("/images/header.gif");
+    box-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+    -moz-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+    -webket-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+}
+
+#access {
+    position:absolute;
+    bottom:0px;
+    width:898px;
+    margin: 0px;
+}
+
+nav ul {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+
+nav li {
+    display:inline;
+    float:left;
+    text-align:center;
+}
+
+nav li a {
+    display:block;
+    width:178px;
+    height:20px;
+    padding-top:4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #424242 #424242 #424242 #7B7B7B;
+}
+
+nav li:first-child a{
+	border-left:none;
+}
+
+nav li:last-child a {
+	border-right:none;
+}
+
+nav li a:link, nav li a:visited {
+    background-color:#565656;
+    color:white;
+}
+
+nav li a:hover, nav li a:active {
+    background-color:black;
+    color:white;
+    text-decoration:none;
+}
+
+#login {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    display:none;
+}
+
+#logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#content {
+    background: #f3f2f2;
+    margin: 0px auto;
+    padding: 10px;
+    width: 878px;
+    box-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+    -moz-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+    -webket-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+}
+
+header.entry-header {
+    background: #f3f2f2;
+    box-shadow: none;
+    -moz-borderbox-shadow: none;
+    -webket-borderbox-shadow: none;
+    height: 100px;
+    width: 878px;
+}
+
+#colophon {
+	width: 898px;
+ 	position: relative;
+ 	margin: 0px auto;
+ 	height: 50px;
+ 	background-color: #373737;
+ 	text-align: center;
+ 	color: white;
+ 	box-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+ 	z-index: -1;
+}

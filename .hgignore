@@ -1,0 +1,34 @@
+syntax: regexp
+files/.*
+lesson.*
+plogger/plog-admin/.*
+plogger/plog-content/plugins/.*
+plogger/plog-content/themes/air/.*
+plogger/plog-content/themes/default/.*
+plogger/plog-content/themes/lucid/.*
+plogger/plog-content/thumbs/.*
+plogger/plog-includes/.*
+syntax: glob
+plogger/LICENSE.txt
+plogger/.htaccess
+plogger/plog-config-sample.php
+plogger/plog-comment.php
+plogger/plog-content/images/.htaccess
+plogger/gallery.php
+plogger/index.php
+plogger/plog-content/index.php
+plogger/plog-content/images/index.php
+plogger/plog-content/themes/index.php
+plogger/plog-content/translations/index.php
+plogger/plog-content/uploads/index.php
+plogger/readme.txt
+plogger/readme.html
+plogger/plogger.php
+plogger/plog-download.php
+plogger/plog-globals.php
+plogger/plog-load-config.php
+plogger/plog-print.php
+plogger/plog-remote.php
+plogger/plog-rss.php
+plogger/plog-thumb.php
+plogger/plog-xml.php
