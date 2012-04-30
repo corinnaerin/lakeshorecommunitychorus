@@ -201,7 +201,6 @@ div.modal {
     height: auto;
     position:absolute;
     z-index: 1000;
-    overflow-y:scroll;
     width: 800px;
 }
 
