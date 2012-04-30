@@ -27,7 +27,7 @@ a:hover, a:active, button:hover, button:focus {
     text-decoration: underline;
 }
 
-input[type=text],input[type=password],input[type=email],textarea {
+input[type=text],input[type=password],input[type=email],textarea, select {
     padding: 3px;
     border: solid 1px grey;
     outline: 0;
@@ -161,6 +161,13 @@ nav li a:hover, nav li a:active {
     display: none; 
 }
 
+#user-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}
+
 #login-error {
     text-align: center;
 }
@@ -188,11 +195,24 @@ label.error {
 *
 */
 
+div.modal {
+    top: 30px;
+    left: 0px;
+    height: auto;
+    position:absolute;
+    z-index: 1000;
+    overflow-y:scroll;
+    width: 800px;
+}
+
 section {
-    background: #f3f2f2;
     margin: 0px auto;
-    padding: 10px;
     width: 878px;
+}
+
+section, div.modal {
+    padding: 10px;
+    background: #f3f2f2;
     box-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
     -moz-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
     -webket-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
@@ -283,9 +303,15 @@ article img {
     padding: 2px;
 }
 
-.resultsTable thead {
+.resultsTable thead, div.modal_header {
     background: #565656;
     color: white;
+}
+
+div.modal_header {
+    text-align:center;
+    width: 100%;
+    padding: 10px 0px;
 }
 
 .resultsTable tbody tr:nth-child(even) {
