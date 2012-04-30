@@ -26,7 +26,7 @@
     {{/each}}
 </script>
 <?php if (isset($_COOKIE['lcc-admin'])  && $_COOKIE['lcc-admin'] == true) { ?>
-<div style="float:left;">
+<div style="float:left;margin-top: 10px;">
     <a href="javscript:void()" id="addUser" data-user-id="0">Add User</a>
 </div>
 <?php } ?>
