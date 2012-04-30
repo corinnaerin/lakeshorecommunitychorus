@@ -38,7 +38,9 @@ function getRecordings() {
     return $stmt->fetchAll( PDO::FETCH_OBJ );
 }
 
-function getUsers($order_by, $filter) {
+function getUsers() {
+    $order_by = $_POST['user-order-by'];
+    $filter = $_POST['user-filter'];
     global $pdo;
     
     $query = "SELECT * from user ";
@@ -102,6 +104,40 @@ function checkLogon() {
     }
     
     return true;
+}
+
+function saveUser() {
+    global $pdo;
+    $userID = $_POST['user_id'];
+    $username = strtolower(substr($_POST['first_name'], 0, 1).$_POST['last_name']);
+    
+    $params = array(
+        ':username' => $username,
+        ':password' => sha1($username)
+    );
+    foreach($_POST as $key => $value) {
+        $params[':'.$key] = $value;
+    }
+    if (strlen($params[':dob']) > 0) {
+        $params[':dob'] = '2011/'.$params[':dob'];
+    }
+    
+    if ($userID == 0) {
+        unset($params[":user_id"]);
+        $query =
+            "INSERT INTO user (
+                username, password, first_name, last_name, email_address, cell_phone, home_phone,
+                vocal_part, folder_num, dob
+            ) VALUES (
+                :username, :password, :first_name, :last_name, :email_address, :cell_phone, :home_phone,
+                :vocal_part, :folder_num, :dob
+            )";
+    }
+    
+    $stmt = $pdo->prepare($query);
+    if (!$stmt->execute($params)) {
+        echo $stmt->errorCode();
+    }
 }
 
 ?>

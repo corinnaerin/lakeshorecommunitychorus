@@ -20,12 +20,17 @@
         <td>{{cell_phone}}</td>
         <td>{{home_phone}}</td>
         <td>{{vocal_part}}</td>
-        <td>{{folder_num}}</td>
+        <td>{{integer folder_num}}</td>
         <td>{{date dob}}</td>
     </tr>
     {{/each}}
 </script>
-<div style="text-align:right;">
+<?php if (isset($_COOKIE['lcc-admin'])  && $_COOKIE['lcc-admin'] == true) { ?>
+<div style="float:left;">
+    <a href="javscript:void()" id="addUser" data-user-id="0">Add User</a>
+</div>
+<?php } ?>
+<div style="text-align:right;float:right;">
     <form id="user-form">
         Order By:
         <select name="user-order-by" class="reload">

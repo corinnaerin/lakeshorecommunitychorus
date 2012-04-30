@@ -2,7 +2,11 @@
     include ('funcs.php');
     if (checkLogon()) {
         if (isXHR()) {
-            echo json_encode(getUsers($_POST['user-order-by'], $_POST['user-filter']));
+            if (isset($_POST['user_id'])) {
+                saveUser();
+            } else if (isset($_POST['user-order-by'])) {
+                echo json_encode(getUsers());
+            }
             return;
         } else {
             include ('views/roster.tmpl.php');
