@@ -26,9 +26,9 @@ var loginForm = {
     },
     
     submit: function(e) {
-    	var $form = jQuery(this);
-    	e.preventDefault();
-    	
+        var $form = jQuery(this);
+        e.preventDefault();
+        
         //If supported, the browser will enforce our "required attributes", so this code will never execute
         if (!Modernizr.input.required) {
             jQuery('input[required]', $form).each(function() {
@@ -38,17 +38,17 @@ var loginForm = {
         }
         
         jQuery.post('/recordings.php', $form.serialize(), function(response) {
-        	if (response.length < 2) {
-        		window.location.href = '/recordings.php';
-        	} else {
-        		loginForm.config.$errorDiv.html(response).slideDown(300);
-        	}
+            if (response.length < 2) {
+                window.location.href = '/recordings.php';
+            } else {
+                loginForm.config.$errorDiv.html(response).slideDown(300);
+            }
         });
     }
 }
 
 loginForm.init({
-	$form: jQuery('#login-win'),
+    $form: jQuery('#login-win'),
     $openButton: jQuery('#login-open'),
     $closeButton: jQuery('#login-close'),
     $errorDiv: jQuery("#login-error")
