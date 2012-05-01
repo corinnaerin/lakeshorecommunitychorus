@@ -10,10 +10,10 @@
 define('PLOGGER_DB_HOST', 'lakeshorecommunitych.ipagemysql.com');
 
 /* MySQL database username */
-define('PLOGGER_DB_USER', 'lakeshorecc');
+define('PLOGGER_DB_USER', 'plogger');
 
 /* MySQL database password */
-define('PLOGGER_DB_PW', 'lak3$h0r3');
+define('PLOGGER_DB_PW', 'qz4ULZVcEKNcmxGm');
 
 /* The name of the database for Plogger */
 define('PLOGGER_DB_NAME', 'plogger');
