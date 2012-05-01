@@ -3,6 +3,7 @@
     <?php
         if (isset($_COOKIE['lcc-first-name'])) {
             $firstname = $_COOKIE['lcc-first-name'];
+            $username = $_COOKIE['lcc-username'];
         }
         if ((isset($_COOKIE['lcc-user-id']) && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
     ?>
@@ -35,6 +36,6 @@
 <section class="lcc_section">
 <?php
 if ((isset($_COOKIE['lcc-user-id']) && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
-// 	include '/_partials/links.php';
-    include '/home/users/web/b441/ipg.lakeshorecommunitych/_partials/links.php';
+    include '/_partials/links.php';
+//     include '/home/users/web/b441/ipg.lakeshorecommunitych/_partials/links.php';
 } ?>
