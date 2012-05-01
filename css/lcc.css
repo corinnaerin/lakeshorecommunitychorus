@@ -216,12 +216,12 @@ div.modal_bkgd {
     background-color: black;
 }
 
-section {
+section.lcc_section {
     margin: 0px auto;
     width: 878px;
 }
 
-section, div.modal {
+section.lcc_section, div.modal {
     padding: 10px;
     background: #f3f2f2;
     box-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
@@ -229,7 +229,7 @@ section, div.modal {
     -webket-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
 }
 
-article {
+article.lcc_article {
     display:table-cell;
     padding-right: 10px;
 }
@@ -251,7 +251,7 @@ aside {
     padding-bottom:10px;
 }
 
-article img {
+article.lcc_article img {
     -webkit-box-shadow: 3px 3px 7px #777;
     -moz-box-shadow: 3px 3px 7px #777;
     box-shadow: 3px 3px 7px #777;
