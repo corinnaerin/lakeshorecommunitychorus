@@ -42,15 +42,7 @@ manageUser = {
         var self = manageUser;
         var userID = jQuery(this).data('user-id')*1;
 //        jQuery.post('/roster.php', jQuery(this).data('user-id'), function(response) {
-            var template = jQuery('<div></div>').addClass("modal").html(self.config.template({})).css({
-                left: ((window.innerWidth - 800) / 2) - 20
-            }).appendTo('body');
-            
-            jQuery('div.modal_header', template).prepend(
-                jQuery('<div><div>').text('X').attr('id', 'user-close').on('click', function() {
-                    template.remove();
-                })
-            );
+            var template = modalWin.show(self.config.template({}));
             
             jQuery('#saveUser', template).on('click', self.saveUser);
             self.config.form = jQuery('#manageUser', template).on('submit', self.saveUser);
@@ -73,11 +65,12 @@ manageUser = {
                 self.config.resultsMsgDiv.text('Save successful');
                 self.config.updateResults.change();
             } else {
-                if (response === "23000") {
+                response = jQuery.parseJSON(response);
+                if (response[0] === "23000") {
                     //Duplicate username
                     self.config.resultsMsgDiv.text('Duplicate username');
                 } else {
-                    self.config.resultsMsgDiv.text('Unknown error: ' + response);
+                    self.config.resultsMsgDiv.text('Unexpected error: ' + response[2]);
                 }
             }
         });
@@ -89,4 +82,8 @@ manageUser.init({
     addLink: jQuery('#addUser'),
     modifyLinks: jQuery('.modifyUser'),
     updateResults: jQuery('.reload')
+});
+
+modalWin.init({
+    width: 800
 });

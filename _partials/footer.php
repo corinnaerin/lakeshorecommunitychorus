@@ -6,11 +6,12 @@
         269-857-2837
     </small>
 </footer>
-<script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js"></script>
 <script src="/js/login.js"></script>
 <script src="/js/logout.js"></script>
 
 <?php if (isset($_COOKIE['lcc-first-name'])) { ?>
+<script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js"></script>
+<script src="/js/modalwin.js"></script>
 <script id="manage-user-tmpl" type="text/x-handlebars-template">
 <div class="modal_header">
     Manage User
@@ -43,7 +44,7 @@
             <td>E-mail Address:</td>
             <td><input type="email" name="email_address" value="{{email_address}}"></td>
             <td>Date of Birth:</td>
-            <td><input type="text" name="dob" value="{{date dob}}"></td>
+            <td><input type="text" name="dob" value="{{date dob}}" maxlength="5"> (MM/dd)</td>
         </tr>
         <tr>
             <td>Cell Phone:</td>

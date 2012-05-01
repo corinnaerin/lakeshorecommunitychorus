@@ -136,7 +136,7 @@ function saveUser() {
     
     $stmt = $pdo->prepare($query);
     if (!$stmt->execute($params)) {
-        echo $stmt->errorCode();
+        echo json_encode($stmt->errorInfo());
     }
 }
 
