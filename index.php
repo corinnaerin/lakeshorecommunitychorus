@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php include ("_partials/header.php"); ?>
-<article>
+<article class="lcc_article">
     <img src="images/pic2.png" id="pic2"><br>
     The Lakeshore Community Chorus, an adult non-profit organization located in the Saugatuck/Douglas region of Western Michigan, is dedicated to the performance of varied choral music for the benefit, education and enjoyment of its members and surrounding lakeshore communities.<br><br>
     

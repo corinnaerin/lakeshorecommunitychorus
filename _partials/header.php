@@ -32,8 +32,9 @@
        </ul>
     </nav>
 </header>
-<section>
+<section class="lcc_section">
 <?php
 if ((isset($_COOKIE['lcc-user-id']) && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
-    include '/_partials/links.php';
+// 	include '/_partials/links.php';
+    include '/home/users/web/b441/ipg.lakeshorecommunitych/_partials/links.php';
 } ?>
