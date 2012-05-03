@@ -25,6 +25,21 @@ function getUserByUsername($username) {
     return $stmt->fetchAll( PDO::FETCH_OBJ );
 }
 
+function getUserByID() {
+    global $pdo;
+
+    $stmt = $pdo->prepare('
+        SELECT *
+        FROM user
+        WHERE user_id = :user_id
+        LIMIT 1
+    ');
+
+    $stmt->execute(array (':user_id' => $_POST['get_user_id']));
+
+    return $stmt->fetchAll( PDO::FETCH_OBJ );
+}
+
 function getRecordings() {
     global $pdo;
 
@@ -109,12 +124,11 @@ function checkLogon() {
 function saveUser() {
     global $pdo;
     $userID = $_POST['user_id'];
-    $username = strtolower(substr($_POST['first_name'], 0, 1).$_POST['last_name']);
     
-    $params = array(
-        ':username' => $username,
-        ':password' => sha1($username)
-    );
+    if ($_POST['confirm_password'] != $_POST['password']) {
+        die(json_encode(array("1", "Passwords must match.")));
+    }
+    
     foreach($_POST as $key => $value) {
         $params[':'.$key] = $value;
     }
@@ -122,7 +136,33 @@ function saveUser() {
         $params[':dob'] = '2011/'.$params[':dob'];
     }
     
-    if ($userID == 0) {
+    if ($userID > 0) {
+        unset($params[':confirm_password']);
+        $query =
+            "UPDATE user SET
+            first_name = :first_name,
+            last_name = :last_name,
+            email_address = :email_address,
+            cell_phone = :cell_phone,
+            home_phone = :home_phone,
+            vocal_part = :vocal_part,
+            folder_num = :folder_num,
+            dob = :dob";
+        
+        if($params[':password'] != "") {
+            $params[':password'] = sha1($params[':password']);
+            $query = $query.", password = :password";
+        } else {
+            unset($params[':password']);
+        }
+        
+        $query = $query." WHERE user_id = :user_id";
+    } else {
+        $username = strtolower(substr($_POST['first_name'], 0, 1).$_POST['last_name']);
+        
+        $params[':username'] = $username;
+        $params[':password'] = sha1($username);
+        
         unset($params[":user_id"]);
         $query =
             "INSERT INTO user (

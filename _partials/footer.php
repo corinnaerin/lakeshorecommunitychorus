@@ -12,13 +12,14 @@
 <?php if (isset($_COOKIE['lcc-first-name'])) { ?>
 <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js"></script>
 <script src="/js/modalwin.js"></script>
+<div id="user-close" style="display:none;"><img src="/images/close.png"></div>
 <script id="manage-user-tmpl" type="text/x-handlebars-template">
 <div class="modal_header">
     Manage User
 </div>
 <div id="results_message" style="text-align:center;padding:5px;"></div>
 <form id="manageUser" method="post">
-<input type="hidden" name="user_id" value="{{user-id}}" id="user_id">
+<input type="hidden" name="user_id" value="{{user_id}}" id="user_id">
     <table style="width:100%;">
         <tr>
             <td>First Name:</td>
@@ -28,9 +29,9 @@
                 <select name="vocal_part">
                     <option value=""></option>
                     <option value="Soprano" {{selected vocal_part "Soprano"}}>Soprano</option>
-                    <option value="Alto" {{selected vocal_part}}>Alto</option>
-                    <option value="Tenor" {{selected vocal_part}}>Tenor</option>
-                    <option value="Bass" {{selected vocal_part}}>Bass</option>
+                    <option value="Alto" {{selected vocal_part "Alto"}}>Alto</option	>
+                    <option value="Tenor" {{selected vocal_part "Tenor"}}>Tenor</option>
+                    <option value="Bass" {{selected vocal_part "Bass"}}>Bass</option>
                 </select>
             </td>
         </tr>
@@ -44,7 +45,7 @@
             <td>E-mail Address:</td>
             <td><input type="email" name="email_address" value="{{email_address}}"></td>
             <td>Date of Birth:</td>
-            <td><input type="text" name="dob" value="{{date dob}}" maxlength="5"> (MM/dd)</td>
+            <td><input type="text" name="dob" value="{{date dob}}" maxlength="5" pattern="[0-1][0-9]?/[0-3][0-9]?"> (MM/dd)</td>
         </tr>
         <tr>
             <td>Cell Phone:</td>

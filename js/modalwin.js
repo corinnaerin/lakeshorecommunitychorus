@@ -1,27 +1,29 @@
 var modalWin = {
     init: function(config) {
         this.config = config;
+        this.config.divs = {};
     },
 
     show: function(html) {
-        this.config.divs = jQuery([]);
-        var win = jQuery('<div></div>').addClass("modal").html(html).css({
-            left: ((window.innerWidth - this.config.width) / 2) - 10,
-        }).appendTo('body').fadeIn(300);
-        this.config.divs.push(win);
+        if (!this.config.divs.win) {
+            this.config.divs.win = jQuery('<div></div>').addClass("modal").css({
+                left: ((window.innerWidth - this.config.width) / 2) - 10,
+            }).appendTo('body');
+        }
+        this.config.divs.win.html(html).fadeIn(300);
         
-        this.config.divs.push(jQuery('<div></div>').addClass("modal_bkgd")
-            .appendTo('body').fadeIn(300).on('click', this.hide));
+        if (!this.config.divs.bkgd) {
+            this.config.divs.bkgd = jQuery('<div></div>').addClass("modal_bkgd")
+                .appendTo('body').on('click', this.hide);
+        }
+        this.config.divs.bkgd.fadeIn(300);
+        jQuery('div#user-close').clone().prependTo('div.modal_header').show().on('click', this.hide);
         
-        jQuery('div.modal_header', win).prepend(
-            jQuery('<div><div>').text('X').attr('id', 'user-close').on('click', this.hide)
-        );
-        
-        return win;
+        return this.config.divs.win;
     },
     
     hide: function() {
-        modalWin.config.divs.each(function() {
+        jQuery.each(modalWin.config.divs, function() {
             this.fadeOut(300, this.remove);
         });
     }

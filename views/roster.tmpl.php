@@ -16,18 +16,22 @@
     <tr>
         <td>{{first_name}}</td>
         <td>{{last_name}}</td>
-        <td><a href="mailto:{{email_address}}">{{email_address}}</a></td>
-        <td>{{cell_phone}}</td>
-        <td>{{home_phone}}</td>
+        <td>{{phoneNbr cell_phone}}</td>
+        <td>{{phoneNbr home_phone}}</td>
         <td>{{vocal_part}}</td>
         <td>{{integer folder_num}}</td>
         <td>{{date dob}}</td>
+        <td style="text-align:right">
+            <a href="mailto:{{email_address}}" id="{{email_address}}" class="email"><img src="/images/email.png"></a>
+            <a href="javascript:void(0);" class="modifyUser" data-user-id="{{user_id}}"><img src="/images/cog.png"></a>
+            <a href="javascript:void(0);" class="removeUser" data-user-id="{{user_id}}"><img src="/images/remove.png"></a>
+        </td>
     </tr>
     {{/each}}
 </script>
 <?php if (isset($_COOKIE['lcc-admin'])  && $_COOKIE['lcc-admin'] == true) { ?>
 <div style="float:left;margin-top: 10px;">
-    <a href="javscript:void()" id="addUser" data-user-id="0">Add User</a>
+    <a href="javscript:void(0)" id="addUser" data-user-id="0" class="icon_add">Add User</a>
 </div>
 <?php } ?>
 <div style="text-align:right;float:right;">
@@ -56,12 +60,12 @@
         <tr>
             <td>First Name</td>
             <td>Last Name</td>
-            <td>E-mail Address</td>
             <td>Cell Phone</td>
             <td>Home Phone</td>
             <td>Voice Part</td>
             <td>Folder #</td>
             <td>DOB</td>
+            <td>&nbsp;</td>
         </tr>
     </thead>
     <tbody id="roster">

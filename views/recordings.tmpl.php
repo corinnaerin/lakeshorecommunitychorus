@@ -37,5 +37,7 @@
 </table>
 <?php } ?>
 <?php include ("_partials/footer.php"); ?>
+<script src="/js/tableData.js"></script>
+<script src="/js/users.js"></script>
 </body>
 </html>
