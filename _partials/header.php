@@ -7,11 +7,14 @@
         }
         if ((isset($_COOKIE['lcc-user-id']) && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
     ?>
-    <div id="welcome">Welcome, <?php echo $firstname; ?>.<button id="logout">Logout</button></div>
+    <div id="welcome">Welcome,
+        <a href="javascript:void(0);" class="modifyUser" data-user-id="<? echo $_COOKIE['lcc-user-id']; ?>">
+            <?php echo $firstname; ?></a>.
+        <button id="logout">Logout</button></div>
     <?php }  else { ?>
     <button id="login-open">Login</button><br>
     <form action="/recordings.php" method="post" id="login-win">
-        <div id="login-close">X</div>
+        <div id="login-close"><img src="/images/close.png"></div>
         <div id="login-error"></div>
         Username<br>
         <input type="text" name="username" required value="<?php if (isset($username)) { echo $username; }?>"><br><br>

@@ -164,7 +164,7 @@ nav li a:hover, nav li a:active {
 #user-close {
     position: absolute;
     top: 15px;
-    right: 20px;
+    right: 15px;
     cursor: pointer;
 }
 
@@ -189,6 +189,11 @@ label.error {
     margin:5px;
 }
 
+.icon_add {
+    background: url('/images/add.png') no-repeat left;
+    padding-left: 18px;
+}
+
 /*
 *
 * Main section
@@ -199,7 +204,7 @@ div.modal {
     top: 30px;
     left: 0px;
     height: auto;
-    position:absolute;
+    position:fixed;
     z-index: 1000;
     width: 800px;
     display: none;
