@@ -78,10 +78,12 @@ manageUser = {
             self.config.form = jQuery('#manageUser', template).on('submit', self.saveUser);
             self.config.resultsMsgDiv = jQuery('#results_message', template);
             
-            if (self.config.userID === 0) {
+            if (self.config.userID !== logoutButton.getCookie('lcc-user-id')*1) {
                 jQuery('input[name$=password]').remove();
                 jQuery('div.password').remove();
-                jQuery('#user_id').val("0");
+                if (self.config.userID === 0) {
+                    jQuery('#user_id').val("0");
+                }
             }
         } catch (err) {
             console.log(response);

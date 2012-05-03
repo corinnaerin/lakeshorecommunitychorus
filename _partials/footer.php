@@ -50,7 +50,7 @@
         <tr>
             <td>Cell Phone:</td>
             <td><input type="text" name="cell_phone" value="{{cell_phone}}" maxlength="10"></td>
-            <td><div class="password">Password:</div></td>
+            <td><div class="password">New Password:</div></td>
             <td><input type="password" name="password"></td>
         </tr>
         <tr>
