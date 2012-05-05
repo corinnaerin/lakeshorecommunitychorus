@@ -62,7 +62,7 @@ manageUser = {
         var self = manageUser;
         self.config.userID = jQuery(this).data('user-id')*1;
         if (self.config.userID > 0) {
-            jQuery.post('/roster.php', {get_user_id : self.config.userID}, self.showModalWin);
+            jQuery.post('/roster.php', {user_id : self.config.userID, action : 'getUser'}, self.showModalWin);
         } else {
             manageUser.showModalWin("");
         }
@@ -101,15 +101,19 @@ manageUser = {
                 self.config.resultsMsgDiv.text('Save successful');
                 self.config.updateResults.change();
             } else {
-                response = jQuery.parseJSON(response);
-                if (response[0] === "1") {
-                   //Mismatching passwords
-                    self.config.resultsMsgDiv.text(response[1]);
-                } else if (response[0] === "23000") {
-                    //Duplicate username
-                    self.config.resultsMsgDiv.text('Duplicate username');
-                } else {
-                    self.config.resultsMsgDiv.text('Unexpected error: ' + response[2]);
+                try {
+                    response = jQuery.parseJSON(response);
+                    if (response[0] === "1") {
+                       //Mismatching passwords
+                        self.config.resultsMsgDiv.text(response[1]);
+                    } else if (response[0] === "23000") {
+                        //Duplicate username
+                        self.config.resultsMsgDiv.text('Duplicate username');
+                    } else {
+                        self.config.resultsMsgDiv.text('Unexpected error: ' + response[2]);
+                    }
+                } catch (err) {
+                    console.log(response);
                 }
             }
         });

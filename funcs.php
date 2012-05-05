@@ -35,7 +35,7 @@ function getUserByID() {
         LIMIT 1
     ');
 
-    $stmt->execute(array (':user_id' => $_POST['get_user_id']));
+    $stmt->execute(array (':user_id' => $_POST['user_id']));
 
     return $stmt->fetchAll( PDO::FETCH_OBJ );
 }
@@ -125,7 +125,7 @@ function saveUser() {
     global $pdo;
     $userID = $_POST['user_id'];
     
-    if ($_POST['confirm_password'] != $_POST['password']) {
+    if (isset($_POST['confirm_password']) && ($_POST['confirm_password'] != $_POST['password'])) {
         die(json_encode(array("1", "Passwords must match.")));
     }
     
@@ -149,7 +149,7 @@ function saveUser() {
             folder_num = :folder_num,
             dob = :dob";
         
-        if($params[':password'] != "") {
+        if(isset($params[':password']) && $params[':password'] != "") {
             $params[':password'] = sha1($params[':password']);
             $query = $query.", password = :password";
         } else {
