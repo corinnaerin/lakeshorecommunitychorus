@@ -19,6 +19,7 @@
 </div>
 <div id="results_message" style="text-align:center;padding:5px;"></div>
 <form id="manageUser" method="post">
+<input type="hidden" name="action" value="saveUser">
 <input type="hidden" name="user_id" value="{{user_id}}" id="user_id">
     <table style="width:100%;">
         <tr>

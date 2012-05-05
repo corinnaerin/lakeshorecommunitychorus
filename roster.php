@@ -2,12 +2,20 @@
     include ('funcs.php');
     if (checkLogon()) {
         if (isXHR()) {
-            if (isset($_POST['user_id'])) {
-                saveUser();
-            } else if (isset($_POST['get_user_id'])) {
-                echo json_encode(getUserByID());
-            } else if (isset($_POST['user-order-by'])) {
-                echo json_encode(getUsers());
+            if (isset($_POST['action'])) {
+                $action = $_POST['action'];
+                unset($_POST['action']);
+                switch ($action) {
+                    case 'saveUser':
+                        saveUser();
+                        break;
+                    case 'getUser':
+                        echo json_encode(getUserByID());
+                        break;
+                    case 'getUsers':
+                        echo json_encode(getUsers());
+                        break;
+                }
             }
             return;
         } else {

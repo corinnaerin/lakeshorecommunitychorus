@@ -36,6 +36,7 @@
 <?php } ?>
 <div style="text-align:right;float:right;">
     <form id="user-form">
+        <input type="hidden" name="action" value="getUsers">
         Order By:
         <select name="user-order-by" class="reload">
             <option value="last_name">Last Name</option>
