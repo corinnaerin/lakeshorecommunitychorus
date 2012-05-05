@@ -80,7 +80,7 @@ manageUser = {
         if (self.config.userID > 0 && 
                 confirm("Are you sure you want to delete " + link.data('name') + "? This action cannot be undone.")) {
             jQuery.post('/roster.php', {user_id : self.config.userID, action : 'removeUser'}, function(response) {
-                if (response) {
+                if (response && response !== "0") {
                     console.log(response);
                 } else {
                     self.config.updateResults.change();
