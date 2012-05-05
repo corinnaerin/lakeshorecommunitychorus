@@ -24,7 +24,7 @@
         <td style="text-align:right">
             <a href="mailto:{{email_address}}" id="{{email_address}}" class="email"><img src="/images/email.png"></a>
             <a href="javascript:void(0);" class="modifyUser" data-user-id="{{user_id}}"><img src="/images/cog.png"></a>
-            <a href="javascript:void(0);" class="removeUser" data-user-id="{{user_id}}"><img src="/images/remove.png"></a>
+            <a href="javascript:void(0);" class="removeUser" data-user-id="{{user_id}}" data-name="{{fullName this}}"><img src="/images/remove.png"></a>
         </td>
     </tr>
     {{/each}}

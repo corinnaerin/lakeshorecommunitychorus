@@ -180,4 +180,15 @@ function saveUser() {
     }
 }
 
+function deleteUser() {
+    global $pdo;
+    
+    $query = "DELETE FROM user WHERE user_id = :user_id";
+    
+    $stmt = $pdo->prepare($query);
+    if (!$stmt->execute(array(':user_id' => $_POST['user_id']))) {
+        echo json_encode($stmt->errorInfo());
+    }
+}
+
 ?>

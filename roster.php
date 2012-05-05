@@ -15,6 +15,9 @@
                     case 'getUsers':
                         echo json_encode(getUsers());
                         break;
+                    case 'removeUser':
+                        deleteUser();
+                        break;
                 }
             }
             return;

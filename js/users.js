@@ -2,6 +2,7 @@ function cleanUserData() {
     var resultsTable = jQuery("table.resultsTable");
     if (logoutButton.getCookie('lcc-admin')) {
         jQuery('a.modifyUser', resultsTable).on('click', manageUser.loadUser);
+        jQuery('a.removeUser', resultsTable).on('click', manageUser.removeUser);
     } else {
         jQuery('a.modifyUser', resultsTable).remove();
         jQuery('a.removeUser', resultsTable).remove();
@@ -50,6 +51,10 @@ Handlebars.registerHelper('phoneNbr', function(value) {
     return "";
 });
 
+Handlebars.registerHelper('fullName', function(object) {
+    return object.first_name + " " + object.last_name;
+});
+
 manageUser = {
     init: function(config) {
         this.config = config;
@@ -65,6 +70,22 @@ manageUser = {
             jQuery.post('/roster.php', {user_id : self.config.userID, action : 'getUser'}, self.showModalWin);
         } else {
             manageUser.showModalWin("");
+        }
+    },
+    
+    removeUser: function() {
+        var self = manageUser;
+        var link = jQuery(this);
+        self.config.userID = link.data('user-id')*1;
+        if (self.config.userID > 0 && 
+                confirm("Are you sure you want to delete " + link.data('name') + "? This action cannot be undone.")) {
+            jQuery.post('/roster.php', {user_id : self.config.userID, action : 'removeUser'}, function(response) {
+                if (response) {
+                    console.log(response);
+                } else {
+                    self.config.updateResults.change();
+                }
+            });
         }
     },
     
