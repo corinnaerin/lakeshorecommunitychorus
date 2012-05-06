@@ -27,6 +27,10 @@ a:hover, a:active, button:hover, button:focus {
     text-decoration: underline;
 }
 
+a img {
+    border: 0px;
+}
+
 input[type=text],input[type=password],input[type=email],textarea, select {
     padding: 3px;
     border: solid 1px grey;
