@@ -14,30 +14,45 @@
 <script id="recording-tmpl" type="text/x-handlebars-template">
     {{#each this}}
     <tr>
-        <td>{{title}}</td>
+        <td>{{titleAndSequence this}}</td>
         <td>{{vocal_part}}</td>
+		<td>{{type}}</td>
         <td>
             <audio controls>
-                <source src="recordings/{{mp3}}" type="audio/mpeg"></source>
-                <source src="recordings/{{ogg}}" type="audio/ogg"></source>
+                <source src="recordings/{{filename}}.mp3" type="audio/mpeg"></source>
+                <source src="recordings/{{filename}}.ogg" type="audio/ogg"></source>
+				Your browser does not support audio files. Please upgrade your browser or use the download
+				link to the right.
             </audio><br>
-            <a href="recordings/{{mp3}}">Download</a>
+            
         </td>
+		<td>
+			<a href="recordings/{{filename}}.mp3" class="icon_download">Download</a>
+		</td>
     </tr>
     {{/each}}
 </script>
+<form id="recordings-form">
+
+</form>
 <table class="resultsTable">
     <thead>
         <tr>
-            <td>title</td>
-            <td>part</td>
-            <td>recording</td>
+            <td>Title</td>
+            <td>Part</td>
+            <td>Type</td>
+            <td>Recording</td>
+            <td></td>
         </tr>
     </thead>
+    <tbody id="recordings">
+    
+    </tbody>
 </table>
 <?php } ?>
 <?php include ("_partials/footer.php"); ?>
 <script src="/js/tableData.js"></script>
-<script src="/js/users.js"></script>
+<script src="/js/manageuser.js"></script>
+<script src="/js/recordings.js"></script>
 </body>
 </html>

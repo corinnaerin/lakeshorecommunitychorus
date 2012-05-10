@@ -1,6 +1,11 @@
 <?php
     include ('funcs.php');
     if (checkLogon()) {
-        include ('views/recordings.tmpl.php');
+        if (isXHR()) {
+            echo json_encode(getRecordings());
+            return;
+        } else {
+            include ('views/recordings.tmpl.php');
+        }
     }
 ?>

@@ -44,8 +44,9 @@ function getRecordings() {
     global $pdo;
 
     $stmt = $pdo->prepare('
-        SELECT title, vocal_part, mp3, ogg
+        SELECT title, vocal_part, sequence, type, filename
         FROM recording
+        ORDER BY title, vocal_part, sequence
         ');
     
     $stmt->execute();

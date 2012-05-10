@@ -198,6 +198,11 @@ label.error {
     padding-left: 18px;
 }
 
+.icon_download {
+    background: url('/images/download.png') no-repeat left;
+    padding-left: 18px;
+}
+
 /*
 *
 * Main section
@@ -321,6 +326,10 @@ article.lcc_article img {
     vertical-align:top;
     border-collapse: collapse;
     padding: 2px;
+}
+
+.resultsTable td {
+    vertical-align: top;
 }
 
 .resultsTable thead, div.modal_header {

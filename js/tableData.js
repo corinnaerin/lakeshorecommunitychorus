@@ -14,7 +14,9 @@ var tableData = {
                 results = jQuery.parseJSON(results);
                 if (results[0]) {
                     self.config.container.append(self.config.template(results));
-                    self.config.callback();
+                    if (typeof self.config.callback === "function") {
+                        self.config.callback();
+                    }
                 } else {
                     self.config.container.append('<tr><td colspan="' + self.config.colspan + '">No results found.</td></tr>');
                 }
