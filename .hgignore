@@ -8,6 +8,7 @@ plogger/plog-content/themes/default/.*
 plogger/plog-content/themes/lucid/.*
 plogger/plog-content/thumbs/.*
 plogger/plog-includes/.*
+recordings/.*
 syntax: glob
 plogger/LICENSE.txt
 plogger/.htaccess
