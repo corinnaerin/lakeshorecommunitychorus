@@ -33,3 +33,5 @@ plogger/plog-remote.php
 plogger/plog-rss.php
 plogger/plog-thumb.php
 plogger/plog-xml.php
+woocons1/*
+woofunction-icons/*
