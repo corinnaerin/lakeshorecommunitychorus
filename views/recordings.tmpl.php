@@ -16,25 +16,34 @@
     <tr>
         <td>{{titleAndSequence this}}</td>
         <td>{{vocal_part}}</td>
-		<td>{{type}}</td>
+        <td>{{type}}</td>
         <td>
             <audio controls>
                 <source src="recordings/{{filename}}.mp3" type="audio/mpeg"></source>
                 <source src="recordings/{{filename}}.ogg" type="audio/ogg"></source>
-				Your browser does not support audio files. Please upgrade your browser or use the download
-				link to the right.
+                Your browser does not support audio files. Please upgrade your browser or use the download
+                link to the right.
             </audio><br>
             
         </td>
-		<td>
-			<a href="recordings/{{filename}}.mp3" class="icon_download">Download</a>
-		</td>
+        <td>
+            <a href="recordings/{{filename}}.mp3" class="icon_download">Download</a>
+        </td>
     </tr>
     {{/each}}
 </script>
-<form id="recordings-form">
-
-</form>
+<div style="text-align:right;float:right;">
+    <form id="recordings-form">
+        Filter:
+        <select name="user-filter" class="reload" id="user-filter">
+            <option value="All">-- All --</option>
+            <option value="Soprano">Soprano</option>
+            <option value="Alto">Alto</option>
+            <option value="Tenor">Tenor</option>
+            <option value="Bass">Bass</option>
+        </select>
+    </form>
+</div>
 <table class="resultsTable">
     <thead>
         <tr>

@@ -7,14 +7,14 @@ function isXHR() {
 function connect() {
     global $pdo;
     $pdo = new PDO("mysql:host=localhost;dbname=lcc", "lakeshorecc", "qz4ULZVcEKNcmxGm");
-    //$pdo = new PDO("mysql:host=lakeshorecommunitych.ipagemysql.com;dbname=lakeshorecc", "lakeshorecc", "qz4ULZVcEKNcmxGm");
+//     $pdo = new PDO("mysql:host=lakeshorecommunitych.ipagemysql.com;dbname=lakeshorecc", "lakeshorecc", "qz4ULZVcEKNcmxGm");
 }
 
 function getUserByUsername($username) {
     global $pdo;
     
     $stmt = $pdo->prepare('
-        SELECT user_id, first_name, username, password, admin
+        SELECT user_id, first_name, username, password, admin, vocal_part
         FROM user
         WHERE username = :username
         LIMIT 1
@@ -42,14 +42,23 @@ function getUserByID() {
 
 function getRecordings() {
     global $pdo;
+    $filter = $_POST['user-filter'];
 
-    $stmt = $pdo->prepare('
-        SELECT title, vocal_part, sequence, type, filename
-        FROM recording
-        ORDER BY title, vocal_part, sequence
-        ');
+    $query = 'SELECT title, vocal_part, sequence, type, filename
+        FROM recording';
+    $params = array();
     
-    $stmt->execute();
+    if ($filter != "All") {
+        $query = "$query WHERE vocal_part LIKE :filter
+            OR vocal_part = 'Accompaniment'
+            OR vocal_part = 'Performance'";
+        $params[':filter'] = "%$filter%";
+    }
+    
+    $query = "$query ORDER BY title, vocal_part, sequence";
+    
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($params);
     
     return $stmt->fetchAll( PDO::FETCH_OBJ );
 }
@@ -106,6 +115,7 @@ function checkLogon() {
                 setcookie('lcc-first-name',$user->first_name, $expiration);
                 setcookie('lcc-remember', $remember, $expiration);
                 setcookie('lcc-admin', $user->admin);
+                setcookie('lcc-vocal-part', $user->vocal_part);
                 $loginSuccess = true;
             }
         }
