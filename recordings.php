@@ -1,5 +1,5 @@
 <?php
-    include ('funcs.php');
+    require_once '/funcs.php';
     if (checkLogon()) {
         if (isXHR()) {
             echo json_encode(getRecordings());

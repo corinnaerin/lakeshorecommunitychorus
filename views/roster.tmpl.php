@@ -29,7 +29,7 @@
     </tr>
     {{/each}}
 </script>
-<?php if (isset($_COOKIE['lcc-admin'])  && $_COOKIE['lcc-admin'] == true) { ?>
+<?php if (cookieExists('lcc-admin')  && getCookie('lcc-admin') == true) { ?>
 <div style="float:left;margin-top: 10px;">
     <a href="javscript:void(0)" id="addUser" data-user-id="0" class="icon_add">Add User</a>
 </div>

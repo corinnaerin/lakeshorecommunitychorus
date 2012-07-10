@@ -1,5 +1,5 @@
 <?php
-    include ('funcs.php');
+    require_once '/funcs.php';
     if (checkLogon()) {
         if (isXHR()) {
             if (isset($_POST['action'])) {
