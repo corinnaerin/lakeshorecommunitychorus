@@ -9,7 +9,7 @@
 <script src="/js/login.js"></script>
 <script src="/js/logout.js"></script>
 
-<?php if (isset($_COOKIE['lcc-first-name'])) { ?>
+<?php if (cookieExists('lcc-first-name')) { ?>
 <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js"></script>
 <script src="/js/modalwin.js"></script>
 <div id="user-close" style="display:none;"><img src="/images/close.png"></div>

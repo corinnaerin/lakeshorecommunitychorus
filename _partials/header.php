@@ -1,14 +1,16 @@
 <header id="lcc_header">
     <img src="/images/logo.png" alt="Lakeshore Community Chorus">
     <?php
-        if (isset($_COOKIE['lcc-first-name'])) {
-            $firstname = $_COOKIE['lcc-first-name'];
-            $username = $_COOKIE['lcc-username'];
+//         require_once '/home/users/web/b441/ipg.lakeshorecommunitych/funcs.php';
+        require_once '/funcs.php';
+        if (cookieExists('lcc-first-name')) {
+            $firstname = getCookie('lcc-first-name');
+            $username = getCookie('lcc-username');
         }
-        if ((isset($_COOKIE['lcc-user-id']) && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
+        if ((cookieExists('lcc-user-id') && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
     ?>
     <div id="welcome">Welcome,
-        <a href="javascript:void(0);" class="modifyUser" data-user-id="<? echo $_COOKIE['lcc-user-id']; ?>">
+        <a href="javascript:void(0);" class="modifyUser" data-user-id="<? echo getCookie('lcc-user-id'); ?>">
             <?php echo $firstname; ?></a>.
         <button id="logout">Logout</button></div>
     <?php }  else { ?>
@@ -38,7 +40,7 @@
 </header>
 <section class="lcc_section">
 <?php
-if ((isset($_COOKIE['lcc-user-id']) && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
+if ((cookieExists('lcc-user-id') && isset($firstname)) || (isset($loginSuccess) && $loginSuccess)) {
     include '/_partials/links.php';
 //     include '/home/users/web/b441/ipg.lakeshorecommunitych/_partials/links.php';
 } ?>

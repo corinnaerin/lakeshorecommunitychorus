@@ -125,7 +125,7 @@ function checkLogon() {
             return false;
         }
     
-    } else if (!isset($_COOKIE['lcc-user-id'])) {
+    } else if (!cookieExists('lcc-user-id')) {
         header("Location: index.php");
     }
     
@@ -200,6 +200,17 @@ function deleteUser() {
     if (!$stmt->execute(array(':user_id' => $_POST['user_id']))) {
         echo json_encode($stmt->errorInfo());
     }
+}
+
+function cookieExists($name) {
+    return isset($_COOKIE[$name]) && strlen($_COOKIE[$name]) > 0;
+}
+
+function getCookie($name) {
+    if (cookieExists($name)) {
+        return $_COOKIE[$name];
+    }
+    return null;
 }
 
 ?>
