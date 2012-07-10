@@ -85,7 +85,7 @@ manageUser = {
                 }
             }
         } catch (err) {
-            console.log(response);
+            console.log(err.message + ": " + response);
         }
         
     },

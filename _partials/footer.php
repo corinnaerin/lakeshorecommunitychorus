@@ -66,4 +66,5 @@
     </div>
 </form>
 </script>
+<script src="/js/manageuser.js"></script>
 <?php } ?>

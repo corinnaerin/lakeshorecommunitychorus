@@ -61,7 +61,6 @@
 <?php } ?>
 <?php include ("_partials/footer.php"); ?>
 <script src="/js/tableData.js"></script>
-<script src="/js/manageuser.js"></script>
 <script src="/js/recordings.js"></script>
 </body>
 </html>
