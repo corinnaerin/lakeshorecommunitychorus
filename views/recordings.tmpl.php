@@ -37,6 +37,8 @@
         Filter:
         <select name="user-filter" class="reload" id="user-filter">
             <option value="All">-- All --</option>
+            <option value="Accompaniment">Accompaniment</option>
+            <option value="Performance">Performance</option>
             <option value="Soprano">Soprano</option>
             <option value="Alto">Alto</option>
             <option value="Tenor">Tenor</option>
