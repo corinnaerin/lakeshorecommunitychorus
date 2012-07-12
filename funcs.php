@@ -6,8 +6,8 @@ function isXHR() {
 
 function connect() {
     global $pdo;
-    $pdo = new PDO("mysql:host=localhost;dbname=lcc", "lakeshorecc", "qz4ULZVcEKNcmxGm");
-//     $pdo = new PDO("mysql:host=lakeshorecommunitych.ipagemysql.com;dbname=lakeshorecc", "lakeshorecc", "qz4ULZVcEKNcmxGm");
+//     $pdo = new PDO("mysql:host=localhost;dbname=lcc", "lakeshorecc", "qz4ULZVcEKNcmxGm");
+    $pdo = new PDO("mysql:host=lakeshorecommunitych.ipagemysql.com;dbname=lakeshorecc", "lakeshorecc", "qz4ULZVcEKNcmxGm");
 }
 
 function getUserByUsername($username) {
@@ -49,9 +49,13 @@ function getRecordings() {
     $params = array();
     
     if ($filter != "All") {
-        $query = "$query WHERE vocal_part LIKE :filter
-            OR vocal_part = 'Accompaniment'
-            OR vocal_part = 'Performance'";
+        $query = "$query WHERE vocal_part LIKE :filter";
+        
+        if ($filter != "Accompaniment" && $filter != "Performance") {
+            $query = "$query OR vocal_part = 'Accompaniment'
+            				 OR vocal_part = 'Performance'";
+        }
+
         $params[':filter'] = "%$filter%";
     }
     
