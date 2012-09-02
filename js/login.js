@@ -39,7 +39,7 @@ var loginForm = {
         
         jQuery.post('/recordings.php', $form.serialize(), function(response) {
             if (response.length < 2) {
-                window.location.href = '/recordings.php';
+                window.location.href = '/calendar.php';
             } else {
                 loginForm.config.$errorDiv.html(response).slideDown(300);
             }
