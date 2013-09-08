@@ -7,10 +7,10 @@
         }
     });
     
-    var part = logoutButton.getCookie('lcc-vocal-part');
-    if (part) {
-        jQuery('#user-filter').val(part);
-    }
+    // var part = logoutButton.getCookie('lcc-vocal-part');
+    // if (part) {
+        // jQuery('#user-filter').val(part);
+    // }
 
     tableData.init({
         reload: jQuery('.reload'),
