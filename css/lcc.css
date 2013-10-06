@@ -76,7 +76,7 @@ button {
 *
 */
 
-header#lcc_header {
+#lcc_header {
     height:220px;
     width:898px;
     position:relative;
@@ -86,6 +86,12 @@ header#lcc_header {
     box-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
     -moz-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
     -webket-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
+    color: white;
+}
+
+#lcc_header a:link, #lcc_header a:visited, #lcc_header button, #lcc_header button:hover, #lcc_header button:focus {
+	color: white;
+	text-decoration: underline;
 }
 
 nav {
