@@ -1,8 +1,7 @@
 <header id="lcc_header">
-    <img src="/images/logo.png" alt="Lakeshore Community Chorus">
     <?php
-//         require_once '/home/users/web/b441/ipg.lakeshorecommunitych/funcs.php';
-        require_once '/funcs.php';
+        require_once '/home/users/web/b441/ipg.lakeshorecommunitych/funcs.php';
+//        require_once '/funcs.php';
         if (cookieExists('lcc-first-name')) {
             $firstname = getCookie('lcc-first-name');
             $username = getCookie('lcc-username');

@@ -82,7 +82,7 @@ header#lcc_header {
     position:relative;
     margin: 0px auto;
     background-position: center top;
-    background: #FFFFFF url("/images/header.gif");
+    background: #FFFFFF url("/images/header.png");
     box-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
     -moz-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
     -webket-borderbox-shadow: 3px 0px 7px #202020, -3px 0px 7px #202020;
